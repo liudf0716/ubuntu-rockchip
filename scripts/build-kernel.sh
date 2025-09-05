@@ -33,5 +33,8 @@ export CROSS_COMPILE=aarch64-linux-gnu-
 export CC=aarch64-linux-gnu-gcc
 export LANG=C
 
+# Enable parallel builds based on available CPU cores for Debian packaging
+export DEB_BUILD_OPTIONS="parallel=$(nproc)"
+
 # Compile the kernel into a deb package
 fakeroot debian/rules clean binary-headers binary-rockchip do_mainline_build=true
