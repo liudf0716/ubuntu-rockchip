@@ -6,6 +6,11 @@ turing-rk1-rk3588_ddr := rk3588_ddr_lp4_2112MHz_lp5_2400MHz_uart9_115200_v1.16.b
 turing-rk1-rk3588_bl31 := rk3588_bl31_v1.45.elf
 turing-rk1-rk3588_pkg := turing-rk1
 
+u-boot-rockchip_platforms += ok3588-c-rk3588
+ok3588-c-rk3588_ddr := rk3588_ddr_lp4_2112MHz_lp5_2400MHz_v1.16.bin
+ok3588-c-rk3588_bl31 := rk3588_bl31_v1.45.elf
+ok3588-c-rk3588_pkg := ok3588-c
+
 u-boot-rockchip_platforms += orangepi-3b-rk3566
 orangepi-3b-rk3566_ddr := rk3566_ddr_1056MHz_v1.18.bin
 orangepi-3b-rk3566_bl31 := rk3568_bl31_v1.43.elf
