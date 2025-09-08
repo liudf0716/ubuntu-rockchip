@@ -1,29 +1,10 @@
-From 2fa75aa5779bba3939f83cfdc0e62151c20917a8 Mon Sep 17 00:00:00 2001
-From: Dengfeng Liu <liudf0716@gmail.com>
-Date: Sun, 7 Sep 2025 11:14:49 +0800
-Subject: [PATCH] board/rockchip: Add Forlinx OK3588-C support
+Description: Add Forlinx OK3588-C board support
+ Add support for the Forlinx OK3588-C development board based on the
+ Rockchip RK3588 SoC.
+Author: Dengfeng Liu <liudf0716@gmail.com>
+Forwarded: no
+Last-Update: 2025-09-07
 
-Add support for the Forlinx OK3588-C development board based on the
-Rockchip RK3588 SoC.
-
-Signed-off-by: Dengfeng Liu <liudf0716@gmail.com>
----
- arch/arm/dts/rk3588-ok3588-c-u-boot.dtsi   |  12 +++
- arch/arm/mach-rockchip/rk3588/Kconfig      |   9 ++
- board/rockchip/ok3588-c_rk3588/Kconfig     |  12 +++
- board/rockchip/ok3588-c_rk3588/MAINTAINERS |   7 ++
- configs/ok3588-c-rk3588_defconfig          | 100 +++++++++++++++++++++
- include/configs/ok3588-c-rk3588.h          |  15 ++++
- 6 files changed, 155 insertions(+)
- create mode 100644 arch/arm/dts/rk3588-ok3588-c-u-boot.dtsi
- create mode 100644 board/rockchip/ok3588-c_rk3588/Kconfig
- create mode 100644 board/rockchip/ok3588-c_rk3588/MAINTAINERS
- create mode 100644 configs/ok3588-c-rk3588_defconfig
- create mode 100644 include/configs/ok3588-c-rk3588.h
-
-diff --git a/arch/arm/dts/rk3588-ok3588-c-u-boot.dtsi b/arch/arm/dts/rk3588-ok3588-c-u-boot.dtsi
-new file mode 100644
-index 00000000000..e1b4f3513d1
 --- /dev/null
 +++ b/arch/arm/dts/rk3588-ok3588-c-u-boot.dtsi
 @@ -0,0 +1,12 @@
@@ -39,8 +20,7 @@ index 00000000000..e1b4f3513d1
 +		u-boot,spl-boot-order = "same-as-spl", &sdmmc, &sdhci;
 +	};
 +};
-diff --git a/arch/arm/mach-rockchip/rk3588/Kconfig b/arch/arm/mach-rockchip/rk3588/Kconfig
-index 4e7942ada87..0093c4c1690 100644
+\ No newline at end of file
 --- a/arch/arm/mach-rockchip/rk3588/Kconfig
 +++ b/arch/arm/mach-rockchip/rk3588/Kconfig
 @@ -170,6 +170,14 @@ config TARGET_ODROID_M2_RK3588S
@@ -58,7 +38,7 @@ index 4e7942ada87..0093c4c1690 100644
  config TARGET_RK3588_NEU6
  	bool "Edgeble Neural Compute Module 6(Neu6) SoM"
  	help
-@@ -420,6 +428,7 @@ source "board/radxa/rock5b-rk3588/Kconfig"
+@@ -420,6 +428,7 @@ source "board/radxa/rock5b-rk3588/Kconfi
  source "board/radxa/rock-5-itx-rk3588/Kconfig"
  source "board/radxa/rock-5c-rk3588s/Kconfig"
  source "board/rockchip/evb_rk3588/Kconfig"
@@ -66,9 +46,6 @@ index 4e7942ada87..0093c4c1690 100644
  source "board/rockchip/toybrick_rk3588/Kconfig"
  source "board/theobroma-systems/jaguar_rk3588/Kconfig"
  source "board/theobroma-systems/tiger_rk3588/Kconfig"
-diff --git a/board/rockchip/ok3588-c_rk3588/Kconfig b/board/rockchip/ok3588-c_rk3588/Kconfig
-new file mode 100644
-index 00000000000..b60eaa19f15
 --- /dev/null
 +++ b/board/rockchip/ok3588-c_rk3588/Kconfig
 @@ -0,0 +1,12 @@
@@ -84,9 +61,7 @@ index 00000000000..b60eaa19f15
 +	default "ok3588-c-rk3588"
 +
 +endif
-diff --git a/board/rockchip/ok3588-c_rk3588/MAINTAINERS b/board/rockchip/ok3588-c_rk3588/MAINTAINERS
-new file mode 100644
-index 00000000000..25effda25f4
+\ No newline at end of file
 --- /dev/null
 +++ b/board/rockchip/ok3588-c_rk3588/MAINTAINERS
 @@ -0,0 +1,7 @@
@@ -97,9 +72,7 @@ index 00000000000..25effda25f4
 +F:	include/configs/ok3588-c-rk3588.h
 +F:	configs/ok3588-c-rk3588_defconfig
 +F:	arch/arm/dts/rk3588-ok3588-c-u-boot.dtsi
-diff --git a/configs/ok3588-c-rk3588_defconfig b/configs/ok3588-c-rk3588_defconfig
-new file mode 100644
-index 00000000000..5751fd1e667
+\ No newline at end of file
 --- /dev/null
 +++ b/configs/ok3588-c-rk3588_defconfig
 @@ -0,0 +1,100 @@
@@ -203,9 +176,7 @@ index 00000000000..5751fd1e667
 +CONFIG_USB_GADGET=y
 +CONFIG_USB_GADGET_DWC2_OTG=y
 +CONFIG_ERRNO_STR=y
-diff --git a/include/configs/ok3588-c-rk3588.h b/include/configs/ok3588-c-rk3588.h
-new file mode 100644
-index 00000000000..6e5efaa42c9
+\ No newline at end of file
 --- /dev/null
 +++ b/include/configs/ok3588-c-rk3588.h
 @@ -0,0 +1,15 @@
@@ -224,6 +195,4 @@ index 00000000000..6e5efaa42c9
 +#include <configs/rk3588_common.h>
 +
 +#endif
--- 
-2.34.1
-
+\ No newline at end of file
