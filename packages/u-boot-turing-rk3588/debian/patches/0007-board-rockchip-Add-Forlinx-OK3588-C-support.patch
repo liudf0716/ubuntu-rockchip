@@ -20,7 +20,6 @@ Last-Update: 2025-09-07
 +		u-boot,spl-boot-order = "same-as-spl", &sdmmc, &sdhci;
 +	};
 +};
-\ No newline at end of file
 --- a/arch/arm/mach-rockchip/rk3588/Kconfig
 +++ b/arch/arm/mach-rockchip/rk3588/Kconfig
 @@ -170,6 +170,14 @@ config TARGET_ODROID_M2_RK3588S
@@ -61,7 +60,6 @@ Last-Update: 2025-09-07
 +	default "ok3588-c-rk3588"
 +
 +endif
-\ No newline at end of file
 --- /dev/null
 +++ b/board/rockchip/ok3588-c_rk3588/MAINTAINERS
 @@ -0,0 +1,7 @@
@@ -72,7 +70,6 @@ Last-Update: 2025-09-07
 +F:	include/configs/ok3588-c-rk3588.h
 +F:	configs/ok3588-c-rk3588_defconfig
 +F:	arch/arm/dts/rk3588-ok3588-c-u-boot.dtsi
-\ No newline at end of file
 --- /dev/null
 +++ b/configs/ok3588-c-rk3588_defconfig
 @@ -0,0 +1,100 @@
@@ -176,7 +173,6 @@ Last-Update: 2025-09-07
 +CONFIG_USB_GADGET=y
 +CONFIG_USB_GADGET_DWC2_OTG=y
 +CONFIG_ERRNO_STR=y
-\ No newline at end of file
 --- /dev/null
 +++ b/include/configs/ok3588-c-rk3588.h
 @@ -0,0 +1,15 @@
@@ -195,4 +191,3 @@ Last-Update: 2025-09-07
 +#include <configs/rk3588_common.h>
 +
 +#endif
-\ No newline at end of file
