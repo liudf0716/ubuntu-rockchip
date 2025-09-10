@@ -172,7 +172,7 @@
 +CONFIG_ERRNO_STR=y
 --- /dev/null
 +++ b/include/configs/ok3588-c-rk3588.h
-@@ -0,0 +1,15 @@
+@@ -0,0 +1,16 @@
 +/* SPDX-License-Identifier: GPL-2.0+ */
 +/*
 + * Copyright (c) 2024 Forlinx Embedded Tech Co., Ltd.
@@ -188,3 +188,4 @@
 +#include <configs/rk3588_common.h>
 +
 +#endif
++
