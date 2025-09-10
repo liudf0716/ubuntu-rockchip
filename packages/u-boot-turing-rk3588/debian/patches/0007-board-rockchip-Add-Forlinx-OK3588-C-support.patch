@@ -1,10 +1,3 @@
-Description: Add Forlinx OK3588-C board support
- Add support for the Forlinx OK3588-C development board based on the
- Rockchip RK3588 SoC.
-Author: Dengfeng Liu <liudf0716@gmail.com>
-Forwarded: no
-Last-Update: 2025-09-07
-
 --- /dev/null
 +++ b/arch/arm/dts/rk3588-ok3588-c-u-boot.dtsi
 @@ -0,0 +1,12 @@
@@ -72,7 +65,7 @@ Last-Update: 2025-09-07
 +F:	arch/arm/dts/rk3588-ok3588-c-u-boot.dtsi
 --- /dev/null
 +++ b/configs/ok3588-c-rk3588_defconfig
-@@ -0,0 +1,100 @@
+@@ -0,0 +1,104 @@
 +CONFIG_ARM=y
 +CONFIG_SKIP_LOWLEVEL_INIT=y
 +CONFIG_SYS_HAS_NONCACHED_MEMORY=y
@@ -103,7 +96,7 @@ Last-Update: 2025-09-07
 +CONFIG_SPL_FIT_SIGNATURE=y
 +CONFIG_SPL_LOAD_FIT=y
 +CONFIG_LEGACY_IMAGE_FORMAT=y
-+CONFIG_OF_BOARD_SETUP=y
++#CONFIG_OF_BOARD_SETUP=y
 +CONFIG_DEFAULT_FDT_FILE="rockchip/rk3588-ok3588-c.dtb"
 +# CONFIG_DISPLAY_CPUINFO is not set
 +CONFIG_DISPLAY_BOARDINFO_LATE=y
@@ -195,27 +188,3 @@ Last-Update: 2025-09-07
 +#include <configs/rk3588_common.h>
 +
 +#endif
-
---- /dev/null
-+++ b/board/rockchip/ok3588-c_rk3588/Makefile
-@@ -0,0 +1,2 @@
-+obj-y += board.o
-+
-
---- /dev/null
-+++ b/board/rockchip/ok3588-c_rk3588/board.c
-@@ -0,0 +1,29 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+/*
-+ * Forlinx OK3588-C board init
-+ */
-+#include &lt;common.h&gt;
-+#include &lt;linux/libfdt.h&gt;
-+#include &lt;fdt_support.h&gt;
-+
-+int ft_board_setup(void *fdt, struct bd_info *bd)
-+{
-+	/* Add OK3588-C specific DT fixups here if needed */
-+	return 0;
-+}
-+
