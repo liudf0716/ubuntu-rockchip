@@ -80,12 +80,16 @@ Last-Update: 2025-09-07
 +CONFIG_ARCH_ROCKCHIP=y
 +CONFIG_SF_DEFAULT_SPEED=24000000
 +CONFIG_SF_DEFAULT_MODE=0x2000
-+CONFIG_DEFAULT_DEVICE_TREE="rk3588-ok3588-c"
++CONFIG_DEFAULT_DEVICE_TREE="rockchip/rk3588-ok3588-c"
 +CONFIG_ROCKCHIP_RK3588=y
 +CONFIG_ROCKCHIP_SPI_IMAGE=y
++CONFIG_SYS_LOAD_ADDR=0xc00800
 +CONFIG_SPL_SERIAL=y
 +CONFIG_TARGET_OK3588_C_RK3588=y
-+CONFIG_SYS_LOAD_ADDR=0xc00800
++CONFIG_FASTBOOT_BUF_ADDR=0xc00800
++CONFIG_FASTBOOT_BUF_SIZE=0x04000000
++CONFIG_FASTBOOT_FLASH=y
++CONFIG_FASTBOOT_FLASH_MMC_DEV=0
 +CONFIG_SF_DEFAULT_BUS=5
 +CONFIG_DEBUG_UART_BASE=0xFEB50000
 +CONFIG_DEBUG_UART_CLOCK=24000000
@@ -191,3 +195,27 @@ Last-Update: 2025-09-07
 +#include <configs/rk3588_common.h>
 +
 +#endif
+
+--- /dev/null
++++ b/board/rockchip/ok3588-c_rk3588/Makefile
+@@ -0,0 +1,2 @@
++obj-y += board.o
++
+
+--- /dev/null
++++ b/board/rockchip/ok3588-c_rk3588/board.c
+@@ -0,0 +1,29 @@
++// SPDX-License-Identifier: GPL-2.0+
++/*
++ * Forlinx OK3588-C board init
++ */
++#include &lt;common.h&gt;
++#include &lt;linux/libfdt.h&gt;
++#include &lt;fdt_support.h&gt;
++
++int ft_board_setup(void *fdt, struct bd_info *bd)
++{
++	/* Add OK3588-C specific DT fixups here if needed */
++	return 0;
++}
++
